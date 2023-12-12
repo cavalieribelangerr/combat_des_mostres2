@@ -46,7 +46,7 @@ while jouer:
         print('''
         
         Lancer du dé : ''', playerForce)
-
+        # si le monstre gagne le combat
         if monstreForce > playerForce:
             nb += 1
             nbD += 1
@@ -58,7 +58,7 @@ while jouer:
                 jouer = False
 
             nb_consecutive = 0
-
+        # si le joueur gagne le combat
         elif monstreForce < playerForce:
             nb += 1
             nbV += 1
@@ -84,3 +84,5 @@ L’usager peut combattre ou éviter chaque adversaire, dans le cas de l’évit
     elif choix == 4:
         print('Merci! au revoir...')
         jouer = False
+
+        # hello
