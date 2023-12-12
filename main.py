@@ -1,7 +1,9 @@
-# Romain
+# Romain Cavalieri-Bélanger
 # combat_des_monstres2
 
 import random
+
+# initiation des variables
 jouer = True
 numMonstre = 0
 nb = 0
@@ -9,10 +11,17 @@ nbV = 0
 nbD = 0
 playerVie = 20
 nb_consecutive = 0
+choix = 1
+monstreForce = 0
+
+# boucle du jeux
 while jouer:
 
-    playerForce = random.randint(0, 20)
-    monstreForce = random.randint(0, 20)
+    playerForce = random.randint(1, 6) + random.randint(1, 6)
+    if choix == 1 or choix == 2:
+        monstreForce = random.randint(1, 8)
+
+
     print('Vous tombez face à face avec un adversaire de difficulté :', monstreForce)
     choix = int(input(print('''Que voulez-vous faire ? 
 	1- Combattre cet adversaire
@@ -21,10 +30,13 @@ while jouer:
 	4- Quitter la partie
 	
 	''')))
-    if nb_consecutive == 3:
-        print('VOTRE ADVERSAIRE EST UN BOSS, IL SERA DONC PLUS FORT')
-        monstreForce = random.randint(12, 20)
 
+    print(nb_consecutive)
+    if nb_consecutive %3 == 0 and nb_consecutive != 0:
+        print('VOTRE ADVERSAIRE EST UN BOSS, IL SERA DONC PLUS FORT')
+        monstreForce = random.randint(5, 15)
+
+    # combat avec le monstre si le choix est 1
     if choix == 1:
         numMonstre += 1
         print('''Adversaire :''', numMonstre,
@@ -46,6 +58,7 @@ while jouer:
                 jouer = False
 
             nb_consecutive = 0
+
         elif monstreForce < playerForce:
             nb += 1
             nbV += 1
@@ -53,6 +66,7 @@ while jouer:
             print('Dernier combat =Victoire' )
             print('Vie = ', playerVie)
             nb_consecutive += 1
+
     elif choix == 2:
         playerVie -= 1
 
