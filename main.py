@@ -85,4 +85,3 @@ L’usager peut combattre ou éviter chaque adversaire, dans le cas de l’évit
         print('Merci! au revoir...')
         jouer = False
 
-        # hello
